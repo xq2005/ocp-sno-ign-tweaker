@@ -6,7 +6,8 @@
 </div>
 <br/>
 
-⚠ **本项目仅用于学习记录目的，请勿在生产环境中使用。** 
+⚠ **本项目仅用于学习记录目的，请勿在生产环境中使用。**
+**仅在OpenShift 4.15版本测试。** 
 
 **背景**
 RedHat OpenShift支持手动单节点（裸金属/虚拟机）安装，具体步骤参阅 [官方文档](https://docs.openshift.com/container-platform/4.15/installing/installing_sno/install-sno-installing-sno.html#install-sno-installing-sno-manually)。 安装过程依赖外置的DNS服务，详细配置参考 [用户自配置 DNS 要求](https://docs.openshift.com/container-platform/4.15/installing/installing_bare_metal/installing-bare-metal-network-customizations.html#installation-dns-user-infra_installing-bare-metal-network-customizations)。 这意味着仍然需要额外的主机（裸金属/虚拟机）提供 DNS 服务，才能完成安装。

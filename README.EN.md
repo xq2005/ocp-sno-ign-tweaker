@@ -7,6 +7,7 @@
 <br/>
 
 ⚠ **This project is for learning purposes only. Do not use it in a production environment.**
+**Tested only on OpenShift 4.15.**
 
 ## Background
 
