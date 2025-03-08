@@ -31,17 +31,16 @@ DNSMASQ_CONFD_PATH = "/etc/dnsmasq.d/"
 # Define dnsmasq systemd service configuration
 DNSMQSQ_SERVICE_SYSTEMD_UNIT = {
     "name": "dnsmasq.service",
-    "enabled": True,
-    "contents": """
-    [Unit]
-    Description=DNS caching server.
-    After=network.target
-    [Service]
-    ExecStart=/usr/sbin/dnsmasq -k
-    Restart=on-failure
-    [Install]
-    WantedBy=multi-user.target
-    """
+"enabled": True,
+"contents": """[Unit]
+Description=DNS caching server.
+After=network.target
+[Service]
+ExecStart=/usr/sbin/dnsmasq -k
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+"""
 }
 
 # 定义一个继承自 str 的类，用于标识需要块格式的字符串
