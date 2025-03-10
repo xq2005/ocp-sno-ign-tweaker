@@ -94,8 +94,15 @@ def CheckNetworkFiles(network_files: List[str]) :
 # Parse and read the Ignition JSON configuration file
 def DecodeIgnitionFile(ign_file_path: str) -> Dict:
     CheckFileExistence(ign_file_path, "Ignition")
+
+    # 保存初始版本
+    # Save initial version
+    backup_file_path = ign_file_path + ".tweaker_bak"
+    if not os.path.exists(backup_file_path):
+        shutil.copyfile(ign_file_path, backup_file_path)
+    
     try:
-        with open(ign_file_path, "r", encoding="utf-8") as f:
+        with open(backup_file_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
         print(f"Error: Failed to read or parse the Ignition file '{ign_file_path}': {e}")
@@ -252,10 +259,6 @@ def UpdateMasterFcc(ign_obj: Dict):
 # 输出修改后的 Ignition 文件到 edit.ign
 # Dump modified Ignition file into edit.ign
 def DumpEditIgn(original_ign_path: str, ign_obj: Dict):
-    backup_file_path = original_ign_path + ".bak"
-    if not os.path.exists(backup_file_path):
-        shutil.copyfile(original_ign_path, backup_file_path)
-
     with open(original_ign_path, mode='w', encoding='utf-8') as ef:
         json.dump(ign_obj, ef, ensure_ascii=False, indent=2)
 
